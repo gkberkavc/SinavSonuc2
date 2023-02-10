@@ -3,6 +3,15 @@ A simple windows form app connected with sql server.In this project i used oop a
 English meanings of some Turkish words
 
 Ogrenci = Student
+
+----------
+
 Ders= Lecture
+
+----------
+
 Not = Grade
+
+----------
+
 Ogretim Uyesi = Teaching staff
