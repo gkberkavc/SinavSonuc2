@@ -66,6 +66,8 @@ namespace WFSinavSonuc
             txtVizeNot.BackColor = Color.Bisque;
 
             txtHarfNot.Text=harf;
+            txtOrtalama.Clear();
+            txtOrtalama.Text = (((Vize * 40) / 100) + ((Final * 60) / 100)).ToString();
         }
 
         private void txtFinalNot_Leave(object sender, EventArgs e)
@@ -74,6 +76,8 @@ namespace WFSinavSonuc
 
             txtHarfNot.Text = harf;
             txtFinalNot.BackColor= BackColor = Color.Bisque;
+            txtOrtalama.Clear();
+            txtOrtalama.Text = (((Vize * 40) / 100) + ((Final * 60) / 100)).ToString();
         }
     }
 }
