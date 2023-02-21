@@ -47,7 +47,8 @@
             this.txtVizeNot.Multiline = true;
             this.txtVizeNot.Name = "txtVizeNot";
             this.txtVizeNot.Size = new System.Drawing.Size(194, 37);
-            this.txtVizeNot.TabIndex = 3;
+            this.txtVizeNot.TabIndex = 0;
+            this.txtVizeNot.Leave += new System.EventHandler(this.txtVizeNot_Leave);
             // 
             // label2
             // 
@@ -67,7 +68,8 @@
             this.txtFinalNot.Multiline = true;
             this.txtFinalNot.Name = "txtFinalNot";
             this.txtFinalNot.Size = new System.Drawing.Size(194, 37);
-            this.txtFinalNot.TabIndex = 5;
+            this.txtFinalNot.TabIndex = 1;
+            this.txtFinalNot.Leave += new System.EventHandler(this.txtFinalNot_Leave);
             // 
             // label3
             // 
@@ -87,7 +89,7 @@
             this.txtHarfNot.Multiline = true;
             this.txtHarfNot.Name = "txtHarfNot";
             this.txtHarfNot.Size = new System.Drawing.Size(194, 37);
-            this.txtHarfNot.TabIndex = 7;
+            this.txtHarfNot.TabIndex = 2;
             // 
             // label4
             // 
@@ -106,7 +108,7 @@
             this.button1.Location = new System.Drawing.Point(130, 330);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(194, 71);
-            this.button1.TabIndex = 8;
+            this.button1.TabIndex = 4;
             this.button1.Text = "Güncelle";
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -128,7 +130,7 @@
             this.txtOrtalama.Multiline = true;
             this.txtOrtalama.Name = "txtOrtalama";
             this.txtOrtalama.Size = new System.Drawing.Size(194, 37);
-            this.txtOrtalama.TabIndex = 10;
+            this.txtOrtalama.TabIndex = 3;
             // 
             // Form5
             // 

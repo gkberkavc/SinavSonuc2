@@ -14,27 +14,25 @@ namespace WFSinavSonuc
     {
         
         
-        public int Hesapla (int ortalama)
+        public string Hesapla (int ortalama)
         {
-            switch (ortalama)
-            {
-              case 1: ortalama <= 45 && ortalama < 55;
-                    break;
-                    case 2: int o =ortalama <= 55 && ortalama < 65;
-                    break;
-                    case 3: int o =ortalama <= 65 && ortalama < 75;
-                    break;
-                    case 4: int o =ortalama <= 75 && ortalama < 80;
-                    break;
-                    case 5: int o =ortalama <= 80 && ortalama < 85;
-                    break;
-                    case 6: int o =ortalama >= 85;
-                    break;
+            string harfNot = "";
 
-                    default:0;
-                    break;
-            }
-            return ortalama;
+
+            if (ortalama >= 45 && ortalama < 55)
+                harfNot = "DC";
+            else if (ortalama >= 55 && ortalama < 65)
+                harfNot = "CC";
+            else if (ortalama >= 65 && ortalama < 75)
+                harfNot = "BC";
+            else if (ortalama >= 75 && ortalama < 85)
+                harfNot = "BB";
+            else if (ortalama >= 85 && ortalama < 90)
+                harfNot = "BA";
+            else if (ortalama >= 90)
+                harfNot = "AA";
+
+            return harfNot;
         }
         
             
@@ -60,6 +58,22 @@ namespace WFSinavSonuc
             txtFinalNot.Text = Final.ToString();
             txtHarfNot.Text = HarfNot.ToString();
             txtVizeNot.Text = Vize.ToString();
+        }
+
+        private void txtVizeNot_Leave(object sender, EventArgs e)
+        {
+            string harf = Hesapla(Convert.ToInt32( txtOrtalama.Text));
+            txtVizeNot.BackColor = Color.Bisque;
+
+            txtHarfNot.Text=harf;
+        }
+
+        private void txtFinalNot_Leave(object sender, EventArgs e)
+        {
+            string harf = Hesapla(Convert.ToInt32(txtOrtalama.Text));
+
+            txtHarfNot.Text = harf;
+            txtFinalNot.BackColor= BackColor = Color.Bisque;
         }
     }
 }
