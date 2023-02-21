@@ -50,11 +50,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(205, 156);
+            this.label2.Location = new System.Drawing.Point(222, 156);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 15);
+            this.label2.Size = new System.Drawing.Size(99, 15);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Öğrenci Numaranız :";
+            this.label2.Text = "E-Mail adresiniz :";
             // 
             // label3
             // 

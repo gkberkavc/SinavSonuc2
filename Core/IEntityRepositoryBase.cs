@@ -29,7 +29,7 @@ namespace Core
         {
             using (var context = new Tcontext())
             {
-                return context.Set<Tentity>().SingleOrDefault(filter);
+                return context.Set<Tentity>().FirstOrDefault(filter);
             }
         }
         public List<Tentity> GetAll(Expression<Func<Tentity, bool>> filter = null)

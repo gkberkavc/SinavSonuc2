@@ -4,6 +4,7 @@ using DataAccess.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230213081942_mig12")]
+    partial class mig12
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,7 +41,7 @@ namespace DataAccess.Migrations
                     b.ToTable("Dersler");
                 });
 
-            modelBuilder.Entity("Entities.Kullanici", b =>
+            modelBuilder.Entity("Entities.Kullanıcı", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -52,6 +54,7 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Bolum")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -61,7 +64,7 @@ namespace DataAccess.Migrations
                     b.Property<bool>("IsOgrenci")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("OgrenciNo")
+                    b.Property<int>("OgrenciNo")
                         .HasColumnType("int");
 
                     b.Property<string>("SoyAd")
@@ -98,7 +101,7 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("KullanıcıId")
+                    b.Property<int>("OgrenciId")
                         .HasColumnType("int");
 
                     b.Property<int>("VizeNot")
@@ -108,9 +111,74 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("DersId");
 
-                    b.HasIndex("KullanıcıId");
+                    b.HasIndex("OgrenciId");
 
                     b.ToTable("Notlar");
+                });
+
+            modelBuilder.Entity("Entities.Ogrenci", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Ad")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Bolum")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OgrenciNo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Sifre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Soyad")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Ogrenciler");
+                });
+
+            modelBuilder.Entity("Entities.OgretimUyesi", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Ad")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sifre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Soyad")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OgretimUyeleri");
                 });
 
             modelBuilder.Entity("Entities.Not", b =>
@@ -121,15 +189,15 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Entities.Kullanici", "Kullanıcı")
+                    b.HasOne("Entities.Ogrenci", "Ogrenci")
                         .WithMany()
-                        .HasForeignKey("KullanıcıId")
+                        .HasForeignKey("OgrenciId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Ders");
 
-                    b.Navigation("Kullanıcı");
+                    b.Navigation("Ogrenci");
                 });
 #pragma warning restore 612, 618
         }

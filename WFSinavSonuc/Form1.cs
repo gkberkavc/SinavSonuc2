@@ -13,63 +13,74 @@ namespace WFSinavSonuc
 
     public partial class Form1 : Form
     {
-        
-        private readonly IOgrenciService _ogrenciService;
+
+        private readonly IKullanýcýService _kullanýcýService;
         private readonly INotService _notService;
+        private readonly IDersService _dersService;
 
+       
 
-        public Form1(IOgrenciService ogrenciService,INotService notService)
+        public Form1(IKullanýcýService kullanýcýService,INotService notService,IDersService dersService)
         {
             InitializeComponent();
-            _ogrenciService = ogrenciService;
+            _kullanýcýService = kullanýcýService;
             _notService = notService;
+            _dersService = dersService;
             
         }
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            string OgrenciNumarasý = txt1.Text;
+            string Email = txt1.Text;
             string sifre = txt2.Text;
 
 
-            Ogrenci ogrenci = _ogrenciService.Get(a => a.OgrenciNo.ToString() == OgrenciNumarasý.Trim());
-            if (ogrenci != null)
+            var kullanici = _kullanýcýService.Get(a => a.Email == txt1.Text.ToString().Trim());
+
+            if (kullanici != null)
             {
-                if (ogrenci.Sifre == sifre)
+                if (kullanici.IsOgrenci == true)
                 {
-                    Form2 frm = new Form2();
-                    frm.Form2ye_Gidecek_Veri ="Hoþgeldin" + "  " + OgrenciNumarasý + "  " + "Numaralý Öðrenci"     ;
-                    frm.dataGridWiev1.DataSource = _notService.OgrenciDersNotlari(ogrenci.OgrenciNo.ToString());
-                    frm.ShowDialog();
+                    if (kullanici.sifre == sifre)
+                    {
+                        Form2 frm = new Form2();
+                        frm.Form2ye_Gidecek_Veri = "Hoþgeldin" + "  " + kullanici.OgrenciNo + "  " + "Numaralý Öðrenci";
+                        frm.dataGridWiev1.DataSource = _notService.OgrenciDersNotlari(kullanici.OgrenciNo.ToString());
+                        frm.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Þifre yanlýþ");
+                        txt2.Clear();
+                        return;
+
+                    }
+
+
                 }
                 else
                 {
-                    MessageBox.Show("Þifre yanlýþ");
-                    txt2.Clear();
-                    return;
+                    if (kullanici.sifre == sifre)
+                    {
+                        Form3 frm = new Form3(_kullanýcýService,_notService,_dersService);
 
+                        frm.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Þifre yanlýþ");
+                        txt2.Clear();
+                        return;
+                    }
                 }
-                
-                
             }
+
             else
             {
-                MessageBox.Show("Öðrenci bulunamadý");
-                txt1.Clear();
-                txt2.Clear();
+                MessageBox.Show("Böyle bir kullanýcý bulunamadý");
                 return;
             }
-            
-            
-           
 
-            
-            
-                
-            
-
-            
-           
 
         }
 
@@ -77,5 +88,7 @@ namespace WFSinavSonuc
         {
 
         }
+
+        
     }
 }

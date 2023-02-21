@@ -11,7 +11,7 @@ namespace Entities
 public  class Not : IEntity
     {
         public int Id { get; set; }
-        public Ogrenci Ogrenci { get; set; }
+        public Kullanici Kullanıcı { get; set; }
 
         public Ders Ders{ get; set; }
         public int VizeNot { get; set; }

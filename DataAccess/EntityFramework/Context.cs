@@ -16,8 +16,12 @@ namespace DataAccess.EntityFramework
         }
 
 
-        public DbSet<Ogrenci> Ogrenciler { get; set; }
+        
         public DbSet<Ders> Dersler { get; set; }
         public DbSet<Not> Notlar { get; set; }
+        
+        public DbSet<Kullanici> Kullanıcılar { get; set; }
+
+
     }
 }

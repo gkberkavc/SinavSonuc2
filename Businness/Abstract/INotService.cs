@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using Core.Dtos;
+using Core.Entities;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -21,5 +22,8 @@ namespace Businness.Abstract
         Not GetNot(int id);
 
         List<DersNotView> OgrenciDersNotlari(string ogrenciNo);
+        public List<TumNotlar> GetTumNotlars();
+
+
     }
 }

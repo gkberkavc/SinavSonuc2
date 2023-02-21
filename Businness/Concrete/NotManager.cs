@@ -1,4 +1,5 @@
 ﻿using Businness.Abstract;
+using Core.Dtos;
 using Core.Entities;
 using DataAccess.Abstract;
 using Entities;
@@ -30,6 +31,7 @@ namespace Businness.Concrete
 
         public List<Not> GetAll()
         {
+            
             return _notDal.GetAll();
         }
 
@@ -47,7 +49,11 @@ namespace Businness.Concrete
         {
             _notDal.Update(not);
         }
+        public List<TumNotlar> GetTumNotlars()
+        {
+            return _notDal.GetTumNotlars();
+        }
 
-      
+
     }
 }

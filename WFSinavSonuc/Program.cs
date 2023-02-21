@@ -21,7 +21,7 @@ namespace WFSinavSonuc
             var host = CreateHostBuilder().Build();
             ServiceProvider = host.Services;
 
-            Application.Run(ServiceProvider.GetRequiredService<Form1>());
+            Application.Run(ServiceProvider.GetRequiredService<Form3>());
         }
         public static IServiceProvider ServiceProvider { get; private set; }
         static IHostBuilder CreateHostBuilder()
@@ -31,12 +31,17 @@ namespace WFSinavSonuc
                 {
                     services.AddTransient<IDersService, DersManager>();
                     services.AddTransient<INotService, NotManager>();
-                    services.AddTransient<IOgrenciService, OgrenciManager>();
-                    services.AddTransient<IOgrenciDal, EFOgrenciDal>();
+                  
                     services.AddTransient<INotDal, EFNotDal>();
                     services.AddTransient<IDersDal, EFDersDal>();
+                  
+                    services.AddTransient<IKullanýcýDal, EFKullanýcýDal>();
+                    services.AddTransient<IKullanýcýService,KullanýcýManager>();
 
-                    services.AddTransient<Form1>();
+                    services.AddTransient<Form3>();
+                    services.AddTransient<Form4>();
+                    services.AddTransient<Form5>();
+                    //services.AddTransient<Form3>();
                 });
         }
 

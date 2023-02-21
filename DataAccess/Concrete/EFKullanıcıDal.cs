@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete
 {
-    public class EFOgrenciDal : IEntityRepositoryBase<Ogrenci, Context>, IOgrenciDal
+    public class EFKullanıcıDal : IEntityRepositoryBase<Kullanici,Context>,IKullanıcıDal
     {
     }
 }

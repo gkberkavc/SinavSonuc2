@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Core;
 using Core.Entities;
+using Core.Dtos;
 
 namespace DataAccess.Abstract
 {
@@ -14,5 +15,6 @@ namespace DataAccess.Abstract
 
 
         List<DersNotView> OgrenciNotlari(string ogrenciNo);
+        public List<TumNotlar> GetTumNotlars();
     }
 }
