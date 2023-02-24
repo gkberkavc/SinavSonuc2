@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txt1 = new System.Windows.Forms.TextBox();
             this.txt2 = new System.Windows.Forms.TextBox();
             this.btnGiris = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -70,7 +72,7 @@
             // 
             this.txt1.Location = new System.Drawing.Point(327, 153);
             this.txt1.Name = "txt1";
-            this.txt1.Size = new System.Drawing.Size(128, 23);
+            this.txt1.Size = new System.Drawing.Size(144, 23);
             this.txt1.TabIndex = 3;
             // 
             // txt2
@@ -78,32 +80,47 @@
             this.txt2.Location = new System.Drawing.Point(327, 186);
             this.txt2.Name = "txt2";
             this.txt2.PasswordChar = '*';
-            this.txt2.Size = new System.Drawing.Size(128, 23);
+            this.txt2.Size = new System.Drawing.Size(144, 23);
             this.txt2.TabIndex = 4;
             // 
             // btnGiris
             // 
+            this.btnGiris.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnGiris.Location = new System.Drawing.Point(327, 239);
             this.btnGiris.Name = "btnGiris";
-            this.btnGiris.Size = new System.Drawing.Size(128, 23);
+            this.btnGiris.Size = new System.Drawing.Size(144, 27);
             this.btnGiris.TabIndex = 5;
             this.btnGiris.Text = "Giriş";
             this.btnGiris.UseVisualStyleBackColor = true;
             this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click);
             // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(327, 285);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 136);
+            this.button1.TabIndex = 6;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnGiris);
             this.Controls.Add(this.txt2);
             this.Controls.Add(this.txt1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Bilgi Sistem";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -118,5 +135,6 @@
         private TextBox txt1;
         private TextBox txt2;
         private Button btnGiris;
+        private Button button1;
     }
 }

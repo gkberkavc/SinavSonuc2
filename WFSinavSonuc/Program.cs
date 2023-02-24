@@ -37,6 +37,13 @@ namespace WFSinavSonuc
                     services.AddTransient<IDersDal, EFDersDal>();
 
                     services.AddTransient<Form1>();
+<<<<<<< Updated upstream
+=======
+                    services.AddTransient<Form3>();
+                    services.AddTransient<Form4>();
+                    services.AddTransient<Form5>();
+                    //services.AddTransient<Form3>();
+>>>>>>> Stashed changes
                 });
         }
 
